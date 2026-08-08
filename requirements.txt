@@ -1,0 +1,32 @@
+# ============================================================
+# CyberTwinAI - requirements.txt
+# Covers Module 1 (Discovery), Module 2 (Digital Twin),
+# Module 3 (Vulnerability Assessment), Module 4 (Risk Assessment),
+# and Module 5 (Dashboard).
+# ============================================================
+
+# --- Backend / API ---
+Flask==3.0.3
+requests==2.32.3           # used by the dashboard to call the Flask API
+
+# --- Database ---
+pymongo==4.8.0
+
+# --- Dashboard (Module 5) ---
+streamlit==1.38.0
+plotly==5.24.1
+networkx==3.3               # used for the Topology page's graph structure
+
+# --- Data ---
+pandas==2.2.2
+numpy==1.26.4
+
+# --- ML-based Threat Detection (future module, not yet used in code) ---
+scikit-learn==1.5.1
+
+# --- Utilities ---
+python-dotenv==1.0.1
+
+# NOTE: Nmap itself is NOT a Python package -- it is separate
+# software that must be installed on your system and available on
+# PATH. See README.md -> "Nmap Installation".
