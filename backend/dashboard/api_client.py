@@ -6,11 +6,12 @@ RESPONSIBILITY: All HTTP communication with the existing Flask backend
 Settings page.
 
 This file NEVER modifies backend logic, NEVER writes to MongoDB, and
-NEVER calls any endpoint other than the four that already exist:
+NEVER calls any endpoint other than the five that already exist:
     GET  /health
     POST /scan
     GET  /assets
     GET  /assets/<asset_id>
+    GET  /knowledge-graph
 
 Every asset dictionary returned by /assets and /assets/<asset_id>
 already contains ports, services, vulnerabilities, risk_score,
@@ -109,6 +110,23 @@ class ApiClient:
         """
         try:
             response = requests.get(f"{self.base_url}/assets/{asset_id}", timeout=REQUEST_TIMEOUT)
+            if response.status_code != 200:
+                return None
+            return response.json()
+        except requests.exceptions.RequestException:
+            return None
+
+    # ------------------------------------------------------------------
+    def get_knowledge_graph(self) -> Optional[dict]:
+        """
+        Call GET /knowledge-graph (Module 6). Returns
+        {"nodes": [...], "edges": [...]}, or None if the endpoint is
+        unreachable or unavailable (e.g. an older backend that
+        doesn't have Module 6 yet) -- callers should treat None as
+        "graph not available" and fall back gracefully.
+        """
+        try:
+            response = requests.get(f"{self.base_url}/knowledge-graph", timeout=REQUEST_TIMEOUT)
             if response.status_code != 200:
                 return None
             return response.json()

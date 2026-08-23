@@ -58,12 +58,43 @@ NAV_ICONS = {
 # SETUP
 # ----------------------------------------------------------------------
 def load_css() -> None:
-    """Inject assets/styles.css into the page. Falls back silently if
-    the file can't be found (dashboard still works, just unstyled)."""
-    css_path = Path(__file__).resolve().parents[2] / "assets" / "styles.css"
-    if css_path.exists():
-        st.markdown(f"<style>{css_path.read_text()}</style>", unsafe_allow_html=True)
+    """
+    Load the Module 5 dashboard CSS.
 
+    First look beside dashboard.py.
+    Then fall back to the project-level assets/styles.css.
+    """
+
+    dashboard_css = Path(__file__).resolve().parent / "styles.css"
+
+    project_css = (
+        Path(__file__).resolve().parents[2]
+        / "assets"
+        / "styles.css"
+    )
+
+    if dashboard_css.exists():
+        css_path = dashboard_css
+
+    elif project_css.exists():
+        css_path = project_css
+
+    else:
+        st.warning(
+            "CyberTwinAI CSS file not found. "
+            "Expected backend/dashboard/styles.css "
+            "or assets/styles.css."
+        )
+        return
+
+    css = css_path.read_text(
+        encoding="utf-8"
+    )
+
+    st.markdown(
+        f"<style>{css}</style>",
+        unsafe_allow_html=True
+    )
 
 def init_session_state() -> None:
     """Set every session_state default exactly once per session."""

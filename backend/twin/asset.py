@@ -36,7 +36,17 @@ class Asset:
         vulnerabilities:    list of vulnerability dicts (see vulnerability.py)
                             -- empty for now; populated by a future
                             Threat Detection module
-        risk_score:         0-100, calculated by twin_manager.py
+        risk_score:         0-100. Initially set by twin_manager.py using
+                            a basic heuristic at discovery time, then
+                            RECALCULATED and overwritten by
+                            backend/risk/risk_calculator.py (Module 4)
+                            once vulnerabilities are known -- that pass
+                            is more accurate since it accounts for
+                            actual vulnerability findings, not just
+                            port count.
+        risk_level:         "Low" | "Medium" | "High" | "Critical",
+                            derived from risk_score. Empty string until
+                            Module 4's RiskCalculator runs at least once.
         last_updated:       ISO timestamp of the last time this asset
                             was created or refreshed by a scan
     """
@@ -51,6 +61,7 @@ class Asset:
     services: List[dict] = field(default_factory=list)
     vulnerabilities: List[dict] = field(default_factory=list)
     risk_score: int = 0
+    risk_level: str = ""
     last_updated: str = field(default_factory=lambda: datetime.now().isoformat())
 
     def to_dict(self) -> dict:
@@ -71,6 +82,7 @@ class Asset:
             "services": self.services,
             "vulnerabilities": self.vulnerabilities,
             "risk_score": self.risk_score,
+            "risk_level": self.risk_level,
             "last_updated": self.last_updated,
         }
 
@@ -94,5 +106,6 @@ class Asset:
             services=data.get("services", []),
             vulnerabilities=data.get("vulnerabilities", []),
             risk_score=data.get("risk_score", 0),
+            risk_level=data.get("risk_level", ""),
             last_updated=data.get("last_updated", datetime.now().isoformat()),
         )
