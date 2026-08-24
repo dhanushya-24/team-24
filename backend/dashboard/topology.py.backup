@@ -1,4 +1,4 @@
-﻿"""
+"""
 topology.py
 ===========
 RESPONSIBILITY: Build interactive network visualizations from
@@ -78,18 +78,16 @@ def build_topology_graph(assets: List[dict]) -> nx.Graph:
     graph = nx.Graph()
 
     router = next((a for a in assets if a.get("device_type") == "router"), None)
-    hub_id = (router.get("asset_id") or router.get("ip_address") or router.get("hostname") or "network-hub") if router else "network-hub"
+    hub_id = router["asset_id"] if router else "network-hub"
     hub_label = router.get("hostname") or router.get("ip_address") if router else "Network"
     hub_type = "router" if router else "hub"
 
     graph.add_node(hub_id, label=hub_label, device_type=hub_type, risk_score=0)
 
     for asset in assets:
-        if router and asset is router:
+        if router and asset["asset_id"] == router["asset_id"]:
             continue  # the router is already the hub, don't link it to itself
-        node_id = asset.get("asset_id") or asset.get("ip_address") or asset.get("hostname")
-        if not node_id:
-            continue
+        node_id = asset["asset_id"]
         label = asset.get("hostname") or asset.get("ip_address", node_id)
         graph.add_node(
             node_id,
@@ -279,7 +277,7 @@ def render_knowledge_graph_figure(graph_data: Dict[str, List[Dict[str, Any]]]) -
 
     fig = go.Figure(data=[edge_trace, node_trace])
     fig.update_layout(
-        title=dict(text="Knowledge Graph â€” Asset Relationships", font=dict(color="#c9d6e3", size=16)),
+        title=dict(text="Knowledge Graph — Asset Relationships", font=dict(color="#c9d6e3", size=16)),
         paper_bgcolor="#141c2b",
         plot_bgcolor="#141c2b",
         showlegend=False,
@@ -289,5 +287,3 @@ def render_knowledge_graph_figure(graph_data: Dict[str, List[Dict[str, Any]]]) -
         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
     )
     return fig
-
-
