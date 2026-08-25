@@ -101,3 +101,30 @@ def get_assets_with_vulnerability(graph: nx.DiGraph, vulnerability_id: str) -> L
         for predecessor in graph.predecessors(node_id)
         if graph.nodes[predecessor].get("node_type") == "asset"
     ]
+
+
+def get_asset_risk(graph: nx.DiGraph, asset_id: str) -> Dict[str, Any]:
+    """
+    Return {"risk_score": int, "risk_level": str} for the given asset,
+    read from its ASSET_HAS_RISK edge (risk_score lives on the edge,
+    risk_level is the connected 'risk' node's label -- see
+    graph_builder.add_asset()). Added for Module 7 (Attack Path
+    Analysis), which needs to read an asset's already-computed risk
+    back out of the graph without recalculating anything.
+
+    Returns {"risk_score": 0, "risk_level": "Unknown"} if the asset or
+    its risk edge isn't present, rather than raising.
+    """
+    node_id = f"asset:{asset_id}"
+    if node_id not in graph:
+        return {"risk_score": 0, "risk_level": "Unknown"}
+
+    for _, target, attributes in graph.out_edges(node_id, data=True):
+        if attributes.get("relationship") == "ASSET_HAS_RISK":
+            risk_node = graph.nodes.get(target, {})
+            return {
+                "risk_score": attributes.get("risk_score") or 0,
+                "risk_level": risk_node.get("label", "Unknown"),
+            }
+
+    return {"risk_score": 0, "risk_level": "Unknown"}
