@@ -1,0 +1,458 @@
+{
+  "assets": [
+    {
+      "asset_id": "AST-001",
+      "hostname": "gateway-router.local",
+      "ip_address": "192.168.1.1",
+      "mac_address": "00:1A:2B:3C:4D:5E",
+      "device_type": "Router",
+      "os": "Cisco RouterOS v15.2",
+      "status": "Online",
+      "first_seen": "2026-08-01 08:00:00",
+      "last_seen": "2026-08-29 11:00:00",
+      "importance": "High",
+      "ports": [
+        {
+          "port": 22,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "SSH",
+          "version": "OpenSSH 8.2p1"
+        },
+        {
+          "port": 80,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "HTTP",
+          "version": "Cisco HTTP Server 1.0"
+        },
+        {
+          "port": 443,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "HTTPS",
+          "version": "Cisco HTTPS 1.0"
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-002",
+      "hostname": "core-prod-server.local",
+      "ip_address": "192.168.1.10",
+      "mac_address": "00:1A:2B:3C:4D:6F",
+      "device_type": "Server",
+      "os": "Ubuntu Linux 22.04 LTS",
+      "status": "Online",
+      "first_seen": "2026-08-01 08:05:00",
+      "last_seen": "2026-08-29 11:15:00",
+      "importance": "Critical",
+      "ports": [
+        {
+          "port": 22,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "SSH",
+          "version": "OpenSSH 7.6p1"
+        },
+        {
+          "port": 80,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "HTTP",
+          "version": "Apache httpd 2.4.41"
+        },
+        {
+          "port": 443,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "HTTPS",
+          "version": "Apache httpd 2.4.41"
+        },
+        {
+          "port": 3306,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "MySQL",
+          "version": "MySQL 5.7.30"
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-003",
+      "hostname": "fin-workstation-01",
+      "ip_address": "192.168.1.20",
+      "mac_address": "00:1A:2B:3C:4D:7A",
+      "device_type": "Workstation",
+      "os": "Windows 11 Enterprise",
+      "status": "Online",
+      "first_seen": "2026-08-05 09:12:00",
+      "last_seen": "2026-08-29 10:45:00",
+      "importance": "Medium",
+      "ports": [
+        {
+          "port": 135,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "MSRPC",
+          "version": "Microsoft Windows RPC"
+        },
+        {
+          "port": 445,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "SMB",
+          "version": "Microsoft SMB v1"
+        },
+        {
+          "port": 3389,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "RDP",
+          "version": "Microsoft RDP 10.0"
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-004",
+      "hostname": "hr-workstation-02",
+      "ip_address": "192.168.1.21",
+      "mac_address": "00:1A:2B:3C:4D:7B",
+      "device_type": "Workstation",
+      "os": "Windows 10 Pro",
+      "status": "Offline",
+      "first_seen": "2026-08-10 10:00:00",
+      "last_seen": "2026-08-28 17:30:00",
+      "importance": "Low",
+      "ports": [
+        {
+          "port": 135,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "MSRPC",
+          "version": "Microsoft Windows RPC"
+        },
+        {
+          "port": 445,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "SMB",
+          "version": "Microsoft SMB v2"
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-005",
+      "hostname": "exec-macbook.local",
+      "ip_address": "192.168.1.30",
+      "mac_address": "00:1A:2B:3C:4D:8B",
+      "device_type": "Laptop",
+      "os": "macOS Sonoma 14.1",
+      "status": "Online",
+      "first_seen": "2026-08-12 11:20:00",
+      "last_seen": "2026-08-29 11:25:00",
+      "importance": "High",
+      "ports": [
+        {
+          "port": 22,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "SSH",
+          "version": "OpenSSH 9.0p1"
+        },
+        {
+          "port": 631,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "IPP",
+          "version": "CUPS 2.4"
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-19216856101",
+      "hostname": "host-192-168-56-101.local",
+      "ip_address": "192.168.56.101",
+      "mac_address": "08:00:27:92:CD:C8",
+      "device_type": "Server",
+      "os": "Unix OS",
+      "status": "Online",
+      "first_seen": "2026-09-25 10:23:53",
+      "last_seen": "2026-09-25 10:23:53",
+      "importance": "Critical",
+      "ports": [
+        {
+          "port": 21,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "FTP",
+          "version": "vsftpd 2.3.4"
+        },
+        {
+          "port": 22,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "SSH",
+          "version": "OpenSSH 4.7p1 Debian 8ubuntu1 protocol 2.0"
+        },
+        {
+          "port": 23,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Telnet",
+          "version": "Linux telnetd"
+        },
+        {
+          "port": 25,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "SMTP",
+          "version": "Postfix smtpd"
+        },
+        {
+          "port": 53,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Domain",
+          "version": "ISC BIND 9.4.2"
+        },
+        {
+          "port": 80,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "HTTP",
+          "version": "Apache httpd 2.2.8 (Ubuntu) DAV/2"
+        },
+        {
+          "port": 111,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Rpcbind",
+          "version": "2 RPC #100000"
+        },
+        {
+          "port": 139,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Netbios-ssn",
+          "version": "Samba smbd 3.X - 4.X workgroup: WORKGROUP"
+        },
+        {
+          "port": 445,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Netbios-ssn",
+          "version": "Samba smbd 3.X - 4.X workgroup: WORKGROUP"
+        },
+        {
+          "port": 512,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "EXEC",
+          "version": "netkit-rsh rexecd"
+        },
+        {
+          "port": 513,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Login",
+          "version": "login 1.0"
+        },
+        {
+          "port": 514,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Shell",
+          "version": "Netkit rshd"
+        },
+        {
+          "port": 1099,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Java-rmi",
+          "version": "GNU Classpath grmiregistry"
+        },
+        {
+          "port": 1524,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Bindshell",
+          "version": "Metasploitable root shell"
+        },
+        {
+          "port": 2049,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "NFS",
+          "version": "2-4 RPC #100003"
+        },
+        {
+          "port": 2121,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "FTP",
+          "version": "ProFTPD 1.3.1"
+        },
+        {
+          "port": 3306,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Mysql",
+          "version": "MySQL 5.0.51a-3ubuntu5"
+        },
+        {
+          "port": 5432,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Postgresql",
+          "version": "PostgreSQL DB 8.3.0 - 8.3.7"
+        },
+        {
+          "port": 5900,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "VNC",
+          "version": "VNC protocol 3.3"
+        },
+        {
+          "port": 6000,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "X11",
+          "version": "access denied"
+        },
+        {
+          "port": 6667,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "IRC",
+          "version": "UnrealIRCd"
+        },
+        {
+          "port": 8009,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "Ajp13",
+          "version": "Apache Jserv Protocol v1.3"
+        },
+        {
+          "port": 8180,
+          "protocol": "TCP",
+          "state": "Open",
+          "service": "HTTP",
+          "version": "Apache Tomcat/Coyote JSP engine 1.1"
+        }
+      ],
+      "data_source": "IMPORTED_LAB_SCAN"
+    }
+  ],
+  "vulnerability_db": [
+    {
+      "cve_id": "CVE-2024-21626",
+      "title": "runc Container Escape & Memory Disclosure",
+      "description": "Leaky file descriptors allow attackers to obtain host filesystem access.",
+      "severity": "Critical",
+      "cvss": 9.8,
+      "affected_service": "Apache httpd",
+      "affected_version": "2.4.41"
+    },
+    {
+      "cve_id": "CVE-2021-44228",
+      "title": "Log4Shell Remote Code Execution",
+      "description": "JNDI lookup feature allows unauthenticated RCE via logging headers.",
+      "severity": "Critical",
+      "cvss": 10.0,
+      "affected_service": "Apache httpd",
+      "affected_version": "2.4.41"
+    },
+    {
+      "cve_id": "CVE-2020-0796",
+      "title": "SMBGhost Remote Code Execution",
+      "description": "Vulnerability in Microsoft Server Message Block 3.1.1 handling compression requests.",
+      "severity": "Critical",
+      "cvss": 10.0,
+      "affected_service": "SMB",
+      "affected_version": "Microsoft SMB v1"
+    },
+    {
+      "cve_id": "CVE-2023-38606",
+      "title": "SSH / Kernel Privilege Escalation",
+      "description": "Flaw in OpenSSH session validation leading to local privilege escalation.",
+      "severity": "High",
+      "cvss": 8.6,
+      "affected_service": "SSH",
+      "affected_version": "OpenSSH 7.6p1"
+    },
+    {
+      "cve_id": "CVE-2022-26925",
+      "title": "Windows LSA Spoofing Vulnerability",
+      "description": "An unauthenticated attacker can force domain controllers to authenticate using NTLM.",
+      "severity": "High",
+      "cvss": 8.1,
+      "affected_service": "RDP",
+      "affected_version": "Microsoft RDP 10.0"
+    },
+    {
+      "cve_id": "CVE-2023-28252",
+      "title": "Windows CLFS Elevation of Privilege",
+      "description": "Privilege escalation vulnerability in Common Log File System Driver.",
+      "severity": "Medium",
+      "cvss": 6.8,
+      "affected_service": "SMB",
+      "affected_version": "Microsoft SMB v2"
+    },
+    {
+      "cve_id": "CVE-2023-48795",
+      "title": "Terrapin SSH Protocol Flaw",
+      "description": "Prefix truncation attack breaking sequence numbers in SSH handshake.",
+      "severity": "Medium",
+      "cvss": 5.9,
+      "affected_service": "SSH",
+      "affected_version": "OpenSSH 8.2p1"
+    },
+    {
+      "cve_id": "CVE-2011-2523",
+      "title": "vsftpd 2.3.4 Backdoor Command Execution",
+      "description": "vsftpd 2.3.4 contains a malicious backdoor allowing unauthorized shell access.",
+      "severity": "Critical",
+      "cvss": 9.8,
+      "affected_service": "vsftpd",
+      "affected_version": "2.3.4"
+    },
+    {
+      "cve_id": "CVE-2008-0166",
+      "title": "OpenSSH Debian Predictable PRNG Key Generation",
+      "description": "Debian OpenSSH package contains predictable random number generator flaw.",
+      "severity": "High",
+      "cvss": 8.5,
+      "affected_service": "OpenSSH",
+      "affected_version": "4.7p1"
+    },
+    {
+      "cve_id": "CVE-2010-4221",
+      "title": "ProFTPD Telnet IAC Buffer Overflow",
+      "description": "Stack-based buffer overflow in ProFTPD server allows remote code execution.",
+      "severity": "Critical",
+      "cvss": 10.0,
+      "affected_service": "ProFTPD",
+      "affected_version": "1.3.1"
+    },
+    {
+      "cve_id": "CVE-2010-2075",
+      "title": "UnrealIRCd 3.2.8.1 Backdoor Command Execution",
+      "description": "UnrealIRCd contains a trojaned backdoor allowing arbitrary code execution.",
+      "severity": "Critical",
+      "cvss": 10.0,
+      "affected_service": "UnrealIRCd",
+      "affected_version": "UnrealIRCd"
+    },
+    {
+      "cve_id": "CVE-2007-2447",
+      "title": "Samba MS-RPC Remote Code Execution",
+      "description": "Samba 3.x username map script command execution vulnerability.",
+      "severity": "Critical",
+      "cvss": 9.8,
+      "affected_service": "Samba smbd",
+      "affected_version": "3.X - 4.X"
+    }
+  ]
+}
